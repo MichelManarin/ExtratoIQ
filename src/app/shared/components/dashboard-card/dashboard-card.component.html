@@ -1,0 +1,10 @@
+<div class="dashboard-card" [class]="'card-' + variant">
+  <div class="card-header">
+    <h3 class="card-title">{{ title }}</h3>
+  </div>
+  <div class="card-body">
+    <div class="card-value">{{ value ?? '-' }}</div>
+    <div class="card-subtitle" *ngIf="subtitle">{{ subtitle }}</div>
+  </div>
+</div>
+

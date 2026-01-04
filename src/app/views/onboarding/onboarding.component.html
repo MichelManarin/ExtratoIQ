@@ -1,0 +1,51 @@
+<div class="app">
+  <!-- Sidebar -->
+  <app-onboarding-sidebar></app-onboarding-sidebar>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="content-bg">
+      <div class="content-wrapper">
+        <div class="step-title">{{ currentStepData.title }}</div>
+
+        <!-- Step com opções -->
+        <div class="options-container" *ngIf="currentStepData.type === 'options' || !currentStepData.type">
+          <app-onboarding-option
+            *ngFor="let option of currentStepData.options"
+            [option]="option"
+            [selected]="isOptionSelected(option.id)"
+            (optionSelected)="onOptionSelected($event)"
+          ></app-onboarding-option>
+        </div>
+
+        <!-- Step de conta bancária -->
+        <div class="bank-account-container" *ngIf="isBankAccountStep()">
+          <app-bank-account-form
+            [banks]="currentStepData.banks || []"
+            [existingAccounts]="bankAccounts"
+            (accountAdded)="onBankAccountAdded($event)"
+            (accountRemoved)="onBankAccountRemoved($event)"
+          ></app-bank-account-form>
+        </div>
+
+        <div class="info" *ngIf="currentStepData.info">
+          {{ currentStepData.info }}
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary" (click)="onBack()">
+            {{ onboardingData.currentStep === 1 ? 'Cancelar' : 'Voltar' }}
+          </button>
+          <button
+            class="btn btn-primary"
+            (click)="onContinue()"
+            [disabled]="!onboardingService.canProceed(onboardingData.currentStep)"
+          >
+            {{ onboardingData.currentStep === onboardingData.totalSteps ? 'Finalizar' : 'Continuar' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+

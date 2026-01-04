@@ -1,0 +1,95 @@
+.sidebar {
+  width: 320px;
+  height: calc(100vh - 40px);
+  background: #f9f9f9;
+  border-right: 1px solid #e4e4e4;
+  padding: 32px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e4e4e4;
+
+  .sidebar-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 8px 0;
+  }
+
+  .sidebar-subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: #7c7d82;
+    margin: 0;
+  }
+}
+
+.accounts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.account-item {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #e4e4e4;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  &:hover {
+    border-color: #40800b;
+    box-shadow: 0 2px 8px rgba(64, 128, 11, 0.1);
+  }
+
+  &.selected {
+    border-color: #40800b;
+    background: rgba(64, 128, 11, 0.05);
+    box-shadow: 0 2px 8px rgba(64, 128, 11, 0.15);
+  }
+
+  .account-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+
+    .bank-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #40800b;
+    }
+
+    .account-name {
+      font-size: 13px;
+      font-weight: 400;
+      color: #7c7d82;
+    }
+  }
+
+  .selected-indicator {
+    flex-shrink: 0;
+  }
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+

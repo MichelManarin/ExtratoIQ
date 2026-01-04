@@ -1,0 +1,11 @@
+<div class="bar-chart-container">
+  <h3 class="chart-title" *ngIf="title">{{ title }}</h3>
+  <div class="chart-wrapper">
+    <canvas baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      type="bar"
+    ></canvas>
+  </div>
+</div>
+

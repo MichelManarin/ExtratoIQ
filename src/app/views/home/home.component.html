@@ -1,0 +1,141 @@
+<div class="home-app">
+  <!-- Sidebar -->
+  <app-home-sidebar
+    [selectedAccountId]="selectedAccountId"
+    (accountSelected)="onAccountSelect($event)"
+  ></app-home-sidebar>
+
+  <!-- Content -->
+  <main class="content">
+    <div class="content-wrapper">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Dashboard</h1>
+          <p class="page-subtitle" *ngIf="selectedAccount">
+            {{ selectedAccount.bankName }} - {{ selectedAccount.accountName }}
+          </p>
+          <p class="page-subtitle" *ngIf="!selectedAccount">
+            Selecione uma conta para visualizar os dados
+          </p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <app-tabs
+        [tabs]="tabs"
+        [activeTabId]="activeTab"
+        (tabChanged)="onTabChange($event)"
+      ></app-tabs>
+
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <!-- Overview Tab -->
+        <div *ngIf="activeTab === 'overview'" class="tab-panel">
+          <!-- Upload Section -->
+          <section class="upload-section">
+            <h2 class="section-title">Enviar Extrato</h2>
+            <app-file-upload
+              accept=".csv,.xlsx,.xls,.pdf"
+              (fileSelected)="onFileUploaded($event)"
+              (error)="onUploadError($event)"
+            ></app-file-upload>
+          </section>
+
+          <!-- Dashboard Cards -->
+          <section class="dashboard-section" *ngIf="selectedAccount || bankAccounts.length > 0">
+            <h2 class="section-title">Resumo Financeiro</h2>
+            <div class="cards-grid">
+              <app-dashboard-card
+                title="Saldo Total"
+                [value]="(totalBalance | currency:'BRL':'symbol':'1.2-2') || 'R$ 0,00'"
+                subtitle="Disponível"
+                variant="primary"
+              ></app-dashboard-card>
+
+              <app-dashboard-card
+                title="Receitas do Mês"
+                [value]="(monthlyIncome | currency:'BRL':'symbol':'1.2-2') || 'R$ 0,00'"
+                subtitle="Últimos 30 dias"
+                variant="success"
+              ></app-dashboard-card>
+
+              <app-dashboard-card
+                title="Despesas do Mês"
+                [value]="(monthlyExpenses | currency:'BRL':'symbol':'1.2-2') || 'R$ 0,00'"
+                subtitle="Últimos 30 dias"
+                variant="warning"
+              ></app-dashboard-card>
+
+              <app-dashboard-card
+                title="Transações"
+                [value]="transactionsCount"
+                subtitle="Este mês"
+                variant="default"
+              ></app-dashboard-card>
+            </div>
+          </section>
+
+          <!-- Charts Section -->
+          <section class="charts-section" *ngIf="selectedAccount">
+            <div class="charts-grid">
+              <div class="chart-card">
+                <app-line-chart
+                  title="Receitas"
+                  [data]="incomeData"
+                  [labels]="dailyLabels"
+                  color="#40800b"
+                ></app-line-chart>
+              </div>
+              <div class="chart-card">
+                <app-line-chart
+                  title="Despesas"
+                  [data]="expenseData"
+                  [labels]="dailyLabels"
+                  color="#ef4444"
+                ></app-line-chart>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Transactions Tab -->
+        <div *ngIf="activeTab === 'transactions'" class="tab-panel">
+          <section class="transactions-section">
+            <h2 class="section-title">Transações</h2>
+            <div class="empty-state" *ngIf="!selectedAccount">
+              <p>Selecione uma conta para visualizar as transações</p>
+            </div>
+            <div class="transactions-list" *ngIf="selectedAccount">
+              <p class="info-text">Lista de transações será exibida aqui</p>
+            </div>
+          </section>
+        </div>
+
+        <!-- Analytics Tab -->
+        <div *ngIf="activeTab === 'analytics'" class="tab-panel">
+          <section class="analytics-section">
+            <h2 class="section-title">Análises</h2>
+            <div class="empty-state" *ngIf="!selectedAccount">
+              <p>Selecione uma conta para visualizar as análises</p>
+            </div>
+            <div class="analytics-content" *ngIf="selectedAccount">
+              <div class="chart-card full-width">
+                <app-bar-chart
+                  title="Receitas vs Despesas - Últimas 7 Semanas"
+                  [data]="combinedData"
+                  [labels]="monthlyLabels"
+                  color="#40800b"
+                ></app-bar-chart>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" *ngIf="bankAccounts.length === 0">
+        <p>Adicione uma conta no onboarding para começar</p>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,31 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h2 class="sidebar-title">Suas Contas</h2>
+    <p class="sidebar-subtitle">Gerencie seus extratos bancários</p>
+  </div>
+
+  <div class="accounts-list" *ngIf="bankAccounts.length > 0">
+    <div
+      class="account-item"
+      [class.selected]="isSelected(account)"
+      *ngFor="let account of bankAccounts"
+      (click)="selectAccount(account)"
+    >
+      <div class="account-info">
+        <span class="bank-name">{{ account.bankName }}</span>
+        <span class="account-name">{{ account.accountName }}</span>
+      </div>
+      <div class="selected-indicator" *ngIf="isSelected(account)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="8" fill="#40800b"/>
+          <path d="M5 8L7 10L11 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="bankAccounts.length === 0">
+    <p>Nenhuma conta adicionada ainda</p>
+  </div>
+</aside>
+

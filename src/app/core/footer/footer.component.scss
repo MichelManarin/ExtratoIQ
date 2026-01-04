@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Inter:wght@400;600&display=swap');
+
+.app-footer {
+  background-color: #132305;
+  color: #e2e2e2;
+  padding: 1.5rem 0;
+  margin-top: auto;
+  border-top: 1px solid #25450c;
+}
+
+.footer-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e2e2;
+  }
+}
+

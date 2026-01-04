@@ -1,0 +1,18 @@
+<aside class="sidebar">
+  <div class="subtitle">
+    Transforme seu extrato em decisões
+    <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+  </div>
+
+  <div class="onboarding-box">
+    <div class="onboarding-title">PORQUE COMPLETAR O ONBOARDING?</div>
+
+    <ul class="onboarding-list">
+      <li *ngFor="let benefit of benefits">
+        <span class="dot"></span>
+        {{ benefit }}
+      </li>
+    </ul>
+  </div>
+</aside>
+

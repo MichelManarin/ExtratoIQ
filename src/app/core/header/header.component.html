@@ -1,0 +1,15 @@
+<header class="app-header">
+  <div class="header-content">
+    <div class="logo">
+      <a routerLink="/">ExtratoIQ</a>
+    </div>
+    <nav class="nav-menu">
+      <a routerLink="/" routerLinkActive="active">Home</a>
+    </nav>
+    <div class="user-menu" *ngIf="authService.isAuthenticated()">
+      <span>{{ authService.currentUser()?.username || 'Usuário' }}</span>
+      <button (click)="logout()" class="logout-button">Sair</button>
+    </div>
+  </div>
+</header>
+

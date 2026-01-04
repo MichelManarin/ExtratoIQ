@@ -1,0 +1,46 @@
+<div class="file-upload">
+  <div
+    class="upload-area"
+    [class.dragging]="isDragging"
+    [class.has-file]="selectedFile"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+  >
+    <input
+      type="file"
+      [accept]="accept"
+      [disabled]="disabled"
+      (change)="onFileSelect($event)"
+      class="file-input"
+      id="file-upload-input"
+    />
+
+    <div class="upload-content" *ngIf="!selectedFile">
+      <div class="upload-icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="17 8 12 3 7 8"></polyline>
+          <line x1="12" y1="3" x2="12" y2="15"></line>
+        </svg>
+      </div>
+      <p class="upload-text">Arraste um arquivo aqui ou clique para selecionar</p>
+      <p class="upload-hint">Formatos aceitos: {{ accept }}</p>
+    </div>
+
+    <div class="file-info" *ngIf="selectedFile">
+      <div class="file-details">
+        <span class="file-name">{{ selectedFile.name }}</span>
+        <span class="file-size">{{ formatFileSize(selectedFile.size) }}</span>
+      </div>
+      <app-button
+        variant="ghost"
+        size="small"
+        (clicked)="removeFile()"
+      >
+        Remover
+      </app-button>
+    </div>
+  </div>
+</div>
+

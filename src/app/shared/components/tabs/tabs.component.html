@@ -1,0 +1,13 @@
+<div class="tabs-container">
+  <button
+    *ngFor="let tab of tabs"
+    [class.active]="activeTabId === tab.id"
+    (click)="selectTab(tab.id)"
+    class="tab-button"
+    type="button"
+  >
+    <span *ngIf="tab.icon" class="tab-icon">{{ tab.icon }}</span>
+    <span class="tab-label">{{ tab.label }}</span>
+  </button>
+</div>
+

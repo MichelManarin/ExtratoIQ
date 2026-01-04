@@ -1,0 +1,6 @@
+export const APP_CONSTANTS = {
+  API_TIMEOUT: 30000,
+  PAGE_SIZE: 10,
+  PAGE_SIZE_OPTIONS: [10, 25, 50, 100],
+};
+

@@ -1,0 +1,22 @@
+.bar-chart-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7c7d82;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.chart-wrapper {
+  flex: 1;
+  min-height: 200px;
+  position: relative;
+}
+

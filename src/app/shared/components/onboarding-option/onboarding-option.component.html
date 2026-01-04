@@ -1,0 +1,16 @@
+<div
+  class="option"
+  [class.selected]="selected"
+  (click)="selectOption()"
+  role="button"
+  tabindex="0"
+  (keydown.enter)="selectOption()"
+  (keydown.space)="selectOption()"
+>
+  <div class="radio"></div>
+  <div>
+    <div class="option-title">{{ option.title }}</div>
+    <div class="option-desc">{{ option.description }}</div>
+  </div>
+</div>
+

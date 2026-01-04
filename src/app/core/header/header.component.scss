@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&family=Inter:wght@400;600&display=swap');
+
+.app-header {
+  background-color: #132305;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #25450c;
+}
+
+.header-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo {
+  a {
+    font-family: 'Electrolize', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #40800b;
+    }
+  }
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+
+  a {
+    color: #e2e2e2;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(64, 128, 11, 0.1);
+      color: #fff;
+    }
+
+    &.active {
+      background-color: rgba(64, 128, 11, 0.2);
+      color: #40800b;
+    }
+  }
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+
+  span {
+    color: #e2e2e2;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .logout-button {
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: #e2e2e2;
+    border: 1px solid #25450c;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: rgba(64, 128, 11, 0.1);
+      border-color: #40800b;
+      color: #40800b;
+    }
+  }
+}
+

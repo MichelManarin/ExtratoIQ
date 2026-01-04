@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>ExtratoIQ – Onboarding</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #132305;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    /* App container */
+    .app {
+      width: 1440px;
+      height: 927px;
+      position: relative;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 408px;
+      height: 910px;
+      background: #132305;
+      padding: 32px;
+      position: relative;
+    }
+
+    .logo {
+      font-family: 'Electrolize';
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #e2e2e2;
+      margin-bottom: 40px;
+    }
+
+    .onboarding-box {
+      background: #101C0A;
+      border: 1px solid #25450C;
+      border-radius: 15px;
+      padding: 20px;
+      width: 340px;
+    }
+
+    .onboarding-title {
+      font-size: 12px;
+      color: #e2e2e2;
+      margin-bottom: 12px;
+    }
+
+    .onboarding-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 14px;
+    }
+
+    .onboarding-list {
+      list-style: none;
+    }
+
+    .onboarding-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e2e2;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      background: #d9d9d9;
+      border-radius: 50%;
+    }
+
+    /* Content */
+    .content {
+      width: 1016px;
+      height: 908px;
+      padding: 20px;
+    }
+
+    .content-bg {
+      background: #fff;
+      border-radius: 20px 20px 20px 20px;
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+      position: relative;
+    }
+
+    .step-title {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .option {
+      width: 677px;
+      margin: 0 auto 18px;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      cursor: pointer;
+      background: #fdfdfd;
+    }
+
+    .option.selected {
+      border: 2px solid #40800B;
+    }
+
+    .radio {
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #eee;
+      margin-top: 2px;
+    }
+
+    .option.selected .radio {
+      background: #40800B;
+      border-color: #40800B;
+    }
+
+    .option-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .option-desc {
+      font-size: 14px;
+      font-weight: 600;
+      color: #7C7D82;
+      margin-top: 4px;
+    }
+
+    .info {
+      text-align: center;
+      font-size: 14px;
+      color: #7C7D82;
+      margin-top: 40px;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      height: 45px;
+      padding: 0 24px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      color: #000;
+    }
+
+    .btn-primary {
+      background: #40800B;
+      border: 1px solid #e4e4e4;
+      color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">ExtratoIQ</div>
+      <div class="subtitle">Transforme seu extrato em decisões</div>
+
+      <div class="onboarding-box">
+        <div class="onboarding-title">PORQUE COMPLETAR O ONBOARDING?</div>
+
+        <ul class="onboarding-list">
+          <li><span class="dot"></span> Feedback de objetivos</li>
+          <li><span class="dot"></span> Recomendações personalizadas</li>
+          <li><span class="dot"></span> Conteúdos direcionados</li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="content">
+      <div class="content-bg">
+
+        <div class="step-title">
+          Em qual estágio você está na sua jornada financeira?
+        </div>
+
+        <div class="option">
+          <div class="radio"></div>
+          <div>
+            <div class="option-title">Quero apenas visualizar meus gastos</div>
+            <div class="option-desc">Sem análises profundas</div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="radio"></div>
+          <div>
+            <div class="option-title">Quero categorizar meus gastos</div>
+            <div class="option-desc">Entender onde gasto mais</div>
+          </div>
+        </div>
+
+        <div class="option selected">
+          <div class="radio"></div>
+          <div>
+            <div class="option-title">Quero melhorar minha vida financeira</div>
+            <div class="option-desc">Análises, metas e insights</div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="radio"></div>
+          <div>
+            <div class="option-title">Quero reduzir dívidas e economizar</div>
+            <div class="option-desc">Planejamento financeiro</div>
+          </div>
+        </div>
+
+        <div class="option">
+          <div class="radio"></div>
+          <div>
+            <div class="option-title">Quero investir melhor meu dinheiro</div>
+            <div class="option-desc">Estratégia e crescimento</div>
+          </div>
+        </div>
+
+        <div class="info">
+          Essa informação ajuda a personalizar sua experiência no ExtratoIQ
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-secondary">Voltar</button>
+          <button class="btn btn-primary">Continuar</button>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+</body>
+</html>

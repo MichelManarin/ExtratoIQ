@@ -1,0 +1,48 @@
+<div class="bank-account-form">
+  <div class="form-container">
+    <app-form-select
+      id="bank-select"
+      label="Banco"
+      placeholder="Selecione um banco"
+      [options]="selectOptions"
+      [(ngModel)]="selectedBankId"
+    ></app-form-select>
+
+    <app-form-input
+      id="account-name"
+      label="Nome da conta"
+      type="text"
+      placeholder="Ex: Conta Corrente Principal"
+      [(ngModel)]="accountName"
+      (keyupEnter)="onAddAccount()"
+    ></app-form-input>
+
+    <app-button
+      variant="primary"
+      size="medium"
+      [disabled]="!selectedBankId || !accountName.trim()"
+      (clicked)="onAddAccount()"
+    >
+      Adicionar conta
+    </app-button>
+  </div>
+
+  <div class="accounts-list" *ngIf="existingAccounts.length > 0">
+    <div class="list-title">Contas adicionadas:</div>
+    <div class="account-item" *ngFor="let account of existingAccounts; let i = index">
+      <div class="account-info">
+        <span class="bank-name">{{ account.bankName }}</span>
+        <span class="account-name">{{ account.accountName }}</span>
+      </div>
+      <button
+        class="btn-remove"
+        (click)="onRemoveAccount(i)"
+        type="button"
+        aria-label="Remover conta"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+</div>
+
