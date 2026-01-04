@@ -32,13 +32,46 @@
         <!-- Overview Tab -->
         <div *ngIf="activeTab === 'overview'" class="tab-panel">
           <!-- Upload Section -->
-          <section class="upload-section">
-            <h2 class="section-title">Enviar Extrato</h2>
-            <app-file-upload
-              accept=".csv,.xlsx,.xls,.pdf"
-              (fileSelected)="onFileUploaded($event)"
-              (error)="onUploadError($event)"
-            ></app-file-upload>
+          <section class="upload-section" [class.expanded]="isUploadExpanded">
+            <div class="upload-header" (click)="toggleUpload()">
+              <div class="title-with-icon">
+                <svg 
+                  class="upload-icon"
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="17 8 12 3 7 8"></polyline>
+                  <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <h2 class="section-title">Enviar Extrato</h2>
+              </div>
+              <svg 
+                class="expand-icon" 
+                [class.expanded]="isUploadExpanded"
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </div>
+            <div class="upload-content" *ngIf="isUploadExpanded">
+              <app-file-upload
+                accept=".csv,.xlsx,.xls"
+                (fileSelected)="onFileUploaded($event)"
+                (error)="onUploadError($event)"
+              ></app-file-upload>
+            </div>
           </section>
 
           <!-- Dashboard Cards -->

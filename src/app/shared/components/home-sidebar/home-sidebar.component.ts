@@ -2,11 +2,12 @@ import { Component, inject, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OnboardingService } from '@app/core/services/onboarding.service';
 import { BankAccount } from '@app/core/models/onboarding.model';
+import { ButtonComponent } from '@app/shared/components/button/button.component';
 
 @Component({
   selector: 'app-home-sidebar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './home-sidebar.component.html',
   styleUrl: './home-sidebar.component.scss',
 })
@@ -25,6 +26,11 @@ export class HomeSidebarComponent {
 
   isSelected(account: BankAccount): boolean {
     return this.selectedAccountId === account.bankId;
+  }
+
+  onAddAccount(): void {
+    // TODO: Implementar navegação para adicionar conta ou abrir modal
+    console.log('Adicionar conta bancária');
   }
 }
 

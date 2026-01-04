@@ -10,7 +10,7 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
   styleUrl: './file-upload.component.scss',
 })
 export class FileUploadComponent {
-  @Input() accept: string = '.csv,.xlsx,.xls,.pdf';
+  @Input() accept: string = '.csv,.xlsx,.xls';
   @Input() maxSize: number = 10 * 1024 * 1024; // 10MB
   @Input() disabled: boolean = false;
   @Output() fileSelected = new EventEmitter<File>();

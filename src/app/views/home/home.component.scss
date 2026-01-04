@@ -111,10 +111,86 @@
   background: #fff;
   border: 1px solid #e4e4e4;
   border-radius: 12px;
-  padding: 32px;
+  padding: 16px 20px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  &.expanded {
+    padding: 32px;
+  }
+
+  .upload-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+
+    .title-with-icon {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .upload-icon {
+      color: #40800b;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .expand-icon {
+      color: #7c7d82;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+
+      &.expanded {
+        transform: rotate(180deg);
+      }
+    }
+
+    &:hover {
+      .upload-icon {
+        transform: translateY(-2px);
+        color: #356a09;
+      }
+
+      .section-title {
+        color: #40800b;
+      }
+
+      .expand-icon {
+        color: #40800b;
+      }
+    }
+  }
+
+  .upload-content {
+    margin-top: 16px;
+    animation: slideDown 0.3s ease;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .dashboard-section {
+  margin-top: 32px;
+
   .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

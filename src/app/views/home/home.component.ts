@@ -34,6 +34,7 @@ export class HomeComponent {
   monthlyIncome = 0;
   monthlyExpenses = 0;
   transactionsCount = 0;
+  isUploadExpanded = false;
 
   tabs: Tab[] = [
     { id: 'overview', label: 'Visão Geral' },
@@ -77,6 +78,10 @@ export class HomeComponent {
   onUploadError(error: string): void {
     console.error('Erro no upload:', error);
     // TODO: Mostrar toast/notificação de erro
+  }
+
+  toggleUpload(): void {
+    this.isUploadExpanded = !this.isUploadExpanded;
   }
 
   private loadAccountData(account: BankAccount): void {
