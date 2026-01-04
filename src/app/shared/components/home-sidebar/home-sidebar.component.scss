@@ -59,6 +59,48 @@
     border-color: #40800b;
     background: rgba(64, 128, 11, 0.05);
     box-shadow: 0 2px 8px rgba(64, 128, 11, 0.15);
+    position: relative;
+    overflow: hidden;
+    
+    // Efeito do vector e gradient sutil
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('/vector-bg-onboarding.svg');
+      background-repeat: no-repeat;
+      background-position: left top;
+      background-size: auto 100%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    // Gradiente sutil
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        to right,
+        rgba(37, 69, 12, 0.1) 0%,
+        rgba(37, 69, 12, 0) 50%
+      );
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    // Conteúdo acima do efeito
+    > * {
+      position: relative;
+      z-index: 2;
+    }
   }
 
   .account-info {
@@ -78,6 +120,18 @@
       font-size: 13px;
       font-weight: 400;
       color: #7c7d82;
+    }
+  }
+
+  &.selected {
+    .account-info {
+      .bank-name {
+        color: #40800b;
+      }
+
+      .account-name {
+        color: #7c7d82;
+      }
     }
   }
 
