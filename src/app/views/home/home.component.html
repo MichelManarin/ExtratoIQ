@@ -3,6 +3,7 @@
   <app-home-sidebar
     [selectedAccountId]="selectedAccountId"
     (accountSelected)="onAccountSelect($event)"
+    (addAccountRequested)="onAddAccountRequested()"
   ></app-home-sidebar>
 
   <!-- Content -->
@@ -171,4 +172,19 @@
       </div>
     </div>
   </main>
+
+  <!-- Modal para adicionar conta -->
+  <app-modal
+    *ngIf="showAddAccountModal"
+    title="Adicionar Conta Bancária"
+    (close)="onCloseModal()"
+  >
+    <app-bank-account-form
+      [banks]="availableBanks"
+      [existingAccounts]="bankAccounts"
+      [showExistingAccounts]="false"
+      (accountAdded)="onAccountAdded($event)"
+      (accountRemoved)="onAccountRemoved($event)"
+    ></app-bank-account-form>
+  </app-modal>
 </div>

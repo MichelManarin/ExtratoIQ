@@ -27,7 +27,7 @@
     </app-button>
   </div>
 
-  <div class="accounts-list" *ngIf="existingAccounts.length > 0">
+  <div class="accounts-list" *ngIf="showExistingAccounts && existingAccounts.length > 0">
     <div class="list-title">Contas adicionadas:</div>
     <div class="account-item" *ngFor="let account of existingAccounts; let i = index">
       <div class="account-info">

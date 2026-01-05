@@ -16,6 +16,7 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
 export class BankAccountFormComponent {
   @Input() banks: BankOption[] = [];
   @Input() existingAccounts: BankAccount[] = [];
+  @Input() showExistingAccounts: boolean = true;
   @Output() accountAdded = new EventEmitter<BankAccount>();
   @Output() accountRemoved = new EventEmitter<number>();
 

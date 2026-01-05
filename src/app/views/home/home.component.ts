@@ -7,6 +7,8 @@ import { FileUploadComponent } from '@app/shared/components/file-upload/file-upl
 import { TabsComponent, Tab } from '@app/shared/components/tabs/tabs.component';
 import { LineChartComponent } from '@app/shared/components/line-chart/line-chart.component';
 import { BarChartComponent } from '@app/shared/components/bar-chart/bar-chart.component';
+import { ModalComponent } from '@app/shared/components/modal/modal.component';
+import { BankAccountFormComponent } from '@app/shared/components/bank-account-form/bank-account-form.component';
 import { BankAccount } from '@app/core/models/onboarding.model';
 
 @Component({
@@ -21,6 +23,8 @@ import { BankAccount } from '@app/core/models/onboarding.model';
     TabsComponent,
     LineChartComponent,
     BarChartComponent,
+    ModalComponent,
+    BankAccountFormComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -90,6 +94,29 @@ export class HomeComponent {
     this.monthlyIncome = 8500.00;
     this.monthlyExpenses = 3200.75;
     this.transactionsCount = 45;
+  }
+
+  showAddAccountModal = false;
+
+  onAddAccountRequested(): void {
+    this.showAddAccountModal = true;
+  }
+
+  onCloseModal(): void {
+    this.showAddAccountModal = false;
+  }
+
+  onAccountAdded(account: BankAccount): void {
+    this.onboardingService.addBankAccount(account);
+    this.onCloseModal();
+  }
+
+  onAccountRemoved(index: number): void {
+    this.onboardingService.removeBankAccount(index);
+  }
+
+  get availableBanks() {
+    return this.onboardingService.getAvailableBanks();
   }
 }
 

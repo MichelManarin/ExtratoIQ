@@ -249,5 +249,18 @@ export class OnboardingService {
     const data = this.getOnboardingData();
     return data.bankAccounts || [];
   }
+
+  getAvailableBanks(): BankOption[] {
+    const bankStep = this.defaultSteps.find(step => step.type === 'bank-account');
+    return bankStep?.banks || [
+      { id: 'santander', name: 'Santander' },
+      { id: 'itau', name: 'Itaú' },
+      { id: 'bradesco', name: 'Bradesco' },
+      { id: 'bb', name: 'Banco do Brasil' },
+      { id: 'caixa', name: 'Caixa Econômica' },
+      { id: 'nubank', name: 'Nubank' },
+      { id: 'inter', name: 'Inter' },
+    ];
+  }
 }
 

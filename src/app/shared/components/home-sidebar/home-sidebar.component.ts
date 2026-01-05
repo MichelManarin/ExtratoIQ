@@ -15,6 +15,7 @@ export class HomeSidebarComponent {
   onboardingService = inject(OnboardingService);
   @Input() selectedAccountId: string | null = null;
   @Output() accountSelected = new EventEmitter<BankAccount>();
+  @Output() addAccountRequested = new EventEmitter<void>();
   
   get bankAccounts(): BankAccount[] {
     return this.onboardingService.getBankAccounts();
@@ -29,8 +30,7 @@ export class HomeSidebarComponent {
   }
 
   onAddAccount(): void {
-    // TODO: Implementar navegação para adicionar conta ou abrir modal
-    console.log('Adicionar conta bancária');
+    this.addAccountRequested.emit();
   }
 }
 
