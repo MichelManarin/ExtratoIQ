@@ -1,14 +1,11 @@
 <div class="app">
-  <!-- Sidebar -->
   <app-onboarding-sidebar></app-onboarding-sidebar>
 
-  <!-- Content -->
   <main class="content">
     <div class="content-bg">
       <div class="content-wrapper">
         <div class="step-title">{{ currentStepData.title }}</div>
 
-        <!-- Step com opções -->
         <div class="options-container" *ngIf="currentStepData.type === 'options' || !currentStepData.type">
           <app-onboarding-option
             *ngFor="let option of currentStepData.options"
@@ -18,7 +15,6 @@
           ></app-onboarding-option>
         </div>
 
-        <!-- Step de conta bancária -->
         <div class="bank-account-container" *ngIf="isBankAccountStep()">
           <app-bank-account-form
             [banks]="currentStepData.banks || []"
